@@ -7,11 +7,11 @@
 body {
     height: 100vh;
     width: 100%;
-    background-color: #d5f2e3;
+    background-color: #cce8f8;
     font-family: sans-serif;
 }
 
-h1 {
+.greeting h1 {
     display: flex;
     justify-content: center;
     padding-top: 50px;
@@ -27,15 +27,15 @@ h1 {
 }
 
 .envelope {
-    min-height: 250px;
-    max-height: auto;
-    min-width: 400px;
-    max-width: 600px;
-    background-color: #026802;
     position: relative;
     display: flex;
     justify-content: center;
+    min-height: 250px;
+    min-width: 400px;
+    max-width: 600px;
+    background-color: #026802;
     z-index: 0;
+    cursor: pointer;
   }
   
   .lid {
@@ -80,14 +80,19 @@ h1 {
   
   .paper {
     position: absolute;
-    top: 0;
-    width: 80%;
-    height: 80%;
+    width: 300px;
+    height: 300px;
     background-color: white;
     z-index: 2;
     transition: 0.5s;
+    color: black;
   }
   
+  .paper p {
+    text-align: center;
+    padding-top: 50px;
+  }
+
   .envelope:hover .lid.one {
       transform: rotateX(90deg);
       transition-delay: 0s;
@@ -103,3 +108,44 @@ h1 {
     transition-delay: 0.5s;
   }
   
+
+  .popup {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .popup:target {
+    display: flex; 
+  }
+  
+  .popup-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 700px;
+    font-size: 25px;
+    text-align: center;
+    position: relative;
+  }
+  
+  .close {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #000000;
+    text-decoration: none;
+  }
+
+  .popup-content .close:hover {
+    color: red;
+  }
